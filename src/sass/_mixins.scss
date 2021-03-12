@@ -16,6 +16,29 @@
   }
 }
 
+
+@mixin ie-11 {
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
+@mixin ie-edge {
+  @supports (-ms-ime-align: auto) {
+    @content;
+  }
+}
+
+@mixin moz {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}
+
+@mixin letter-spacing($spacing) {
+	letter-spacing: ($spacing / 1000) * 1em;
+} 
+
 // Media query mixin
 @mixin bp($query) {
   @if $query == desktop-lg {
