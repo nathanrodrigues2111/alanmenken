@@ -1,0 +1,20 @@
+.title-and-description {
+  text-align: center;
+  padding: 0 40px;
+  @include font-rem(30px);
+
+  .description {
+    @include font-rem(15px, 17px);
+    color: $greyShade3;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 2px;
+
+    @include bp(tablet) {
+      @include font-rem(18px, 22px);
+      margin-top: 15px;
+      font-size: 18px;
+      line-height: 22px;
+    }
+  }
+}

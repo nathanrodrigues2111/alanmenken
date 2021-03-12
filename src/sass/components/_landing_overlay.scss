@@ -1,0 +1,80 @@
+.landing-overlay {
+  position: fixed;
+  z-index: 99;
+  inset: 0px;
+  background: $secondary;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .top-overlay-section {
+    top: 10px;
+    opacity: 0.7;
+    position: absolute;
+    width: 206px;
+    height: 23px;
+    transition: opacity 0.5s;
+    max-width: 129px;
+    margin: 0 auto;
+
+    .LoadingLogo {
+      @include bp(tablet) {
+        opacity: 0;
+        transition: 0.3s;
+        display: none;
+      }
+    }
+
+    #SoundUpMessageTop {
+      display: none;
+
+      @include bp(tablet) {
+        display: block;
+      }
+    }
+
+    @include bp(tablet) {
+      top: 59px;
+      max-width: 206px;
+    }
+  }
+
+  .center-info {
+    max-width: 551px;
+    width: 100%;
+    padding: 21px;
+
+    .center-logo-container {
+      max-width: 435px;
+      margin: 0 auto;
+      display: none;
+
+      @include bp(tablet) {
+        display: block;
+      }
+    }
+
+    .MobileSoundText {
+      margin-top: -70px;
+      g {
+        path {
+          &:nth-child(2) {
+            @include bp(tablet) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+
+    .button {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    @include bp(tablet) {
+      padding: 0;
+    }
+  }
+}

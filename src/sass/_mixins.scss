@@ -1,0 +1,69 @@
+// ==========================================================================
+//  GLOBAL Mixins
+// ==========================================================================
+
+// * Convert font-size from px to rem
+// *
+// * @param $size - the value in pixel you want to convert
+// *
+// * e.g. p {@include fontSize(12px);}
+// *
+
+@mixin font-rem($font-size, $line-height: 0) {
+  font-size: ($font-size / $baseFontSize) * 1rem;
+  @if ($line-height > 0) {
+    line-height: ($line-height / $baseFontSize) * 1rem;
+  }
+}
+
+// Media query mixin
+@mixin bp($query) {
+  @if $query == desktop-lg {
+    @media (max-width: 1399px) {
+      @content;
+    }
+  } @else if $query == desktop-md {
+    @media (min-width: 1400px) {
+      @content;
+    }
+  } @else if $query == small-laptop-md {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  } @else if $query == desktop-custom {
+    @media (min-width: 1024px) and (max-width: 1200px) {
+      @content;
+    }
+  } @else if $query == tablet-md {
+    @media (min-width: 992px) {
+      @content;
+    }
+  } @else if $query == tablet-sm {
+    @media (max-width: 991px) {
+      @content;
+    }
+  } @else if $query == tablet-strict {
+    @media (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $query == tablet {
+    @media (min-width: 768px) {
+      @content;
+    }
+  } @else if $query == mobile {
+    @media (max-width: 576px) {
+      @content;
+    }
+  } @else if $query == xs {
+    @media (max-width: 320px) {
+      @content;
+    }
+  }
+}
+
+.bounce-out {
+  transition: 0.3s;
+  &:hover {
+    transform: scale(0.8);
+  }
+}

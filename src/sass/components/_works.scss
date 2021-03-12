@@ -1,0 +1,87 @@
+.work-list {
+  position: relative;
+  z-index: 1;
+  max-width: 977px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: calc(50vh - 94px);
+  padding-bottom: calc(50vh - 30px);
+
+  h4 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-size: 14px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    padding-bottom: 15px;
+    color: $secondary;
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      width: 202px;
+      height: 15px;
+      bottom: -10px;
+      left: calc(50% - 101px);
+      background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 202 15'%3E%3Cpath d='M89.73 7.5a65.4 65.4 0 00-8.67-2.32 107.11 107.11 0 00-21.97-2.34c-4.74-.01-9.48.3-14.18.94-5.1.7-10.13 1.76-15.25 2.29-6.86.7-13.82.87-20.68.08-2.74-.31-5.64-.7-8.25-1.64C0 4.24-.31 5.4.4 5.66c2.04.74 4.26 1.1 6.4 1.4 6.21.92 12.54.98 18.8.55 9.81-.67 19.37-3.12 29.2-3.5 7.92-.3 15.88.3 23.65 1.77 3.68.7 7.42 1.5 10.95 2.78.73.27 1.04-.9.32-1.15M200.35 4.5a33.29 33.29 0 01-6.4 1.4c-6.36.95-12.87.94-19.27.46-9.83-.74-19.4-3.18-29.29-3.47-7.73-.23-15.5.4-23.1 1.83-3.67.7-7.41 1.5-10.94 2.79-.72.26-.4 1.42.32 1.15a65.7 65.7 0 018.67-2.33 105.6 105.6 0 0122.49-2.29 100 100 0 0114.9 1.18c4.84.75 9.64 1.66 14.52 2.13 6.74.64 13.57.77 20.3-.05 2.7-.33 5.54-.7 8.12-1.64.72-.26.4-1.42-.32-1.15m-93.49.59c-1.64-1.05-2.38-2.82-2.74-4.67-.12-.59-1.03-.56-1.16 0-.8 3.38-1.34 6.82-1.87 10.25a4.3 4.3 0 00-1.95-.85c-1.8-.32-3.42.42-3.64 1.64-.21 1.22 1.07 2.46 2.87 2.77 1.54.27 2.95-.23 3.45-1.15a.5.5 0 00.15-.28l.02-.18.01-.02v-.04c.5-3.2.99-6.43 1.64-9.6a6.95 6.95 0 002.62 3.17c.65.42 1.25-.62.6-1.04' fill-rule='evenodd'/%3E%3C/svg%3E");
+    }
+  }
+
+  ul {
+    list-style: none;
+    li {
+      a {
+        @include font-rem(25px);
+        color: #a2a095;
+        letter-spacing: 0;
+        padding-bottom: 15px;
+        display: inline-block;
+        transition: 0.3s;
+
+        @include bp(tablet) {
+          @include font-rem(60px, 68px);
+          padding-bottom: 23px;
+        }
+      }
+
+      &.active {
+        a {
+          color: $secondary;
+        }
+      }
+    }
+  }
+}
+
+.background-slider {
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+
+  .swiper-wrapper {
+    .swiper-slide {
+      transform: scale(1.1);
+      div {
+        height: 100vh;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: grayscale(100%);
+
+        &:before {
+          content: "";
+          background-color: $white;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          opacity: 0.7;
+        }
+      }
+    }
+  }
+}

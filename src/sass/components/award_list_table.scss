@@ -1,0 +1,101 @@
+.award-list-table {
+  margin-top: 40px;
+  width: 100%;
+  text-align: left;
+  padding: 0 10px 60px;
+  position: relative;
+
+  table {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1140px;
+    vertical-align: top;
+    border-collapse: collapse;
+
+    tr {
+      vertical-align: baseline;
+
+      th {
+        opacity: 0.8;
+        @include font-rem(10px, 14px);
+        color: #554d3d;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        padding-bottom: 6px;
+        position: relative;
+        padding-right: 10px;
+        user-select: none;
+        min-width: 60px;
+
+        &.active {
+          &:after {
+            position: absolute;
+            top: 4px;
+            margin-left: 3px;
+            content: "";
+            width: 0;
+            height: 0;
+            border-color: #736c5e transparent transparent;
+            border-style: solid;
+            border-width: 4px 4px 0;
+            transition: transform 0.2s;
+            transform: rotate(-180deg);
+          }
+        }
+
+        &.asc {
+          &:after {
+            transform: rotate(0deg);
+          }
+        }
+      }
+
+      &:first-child {
+        vertical-align: top !important;
+      }
+
+      td {
+        border-bottom: 1px solid #d8d5cc;
+        > div {
+          padding-top: 18px;
+          padding-bottom: 23px;
+          padding-right: 10px;
+          display: flex;
+          flex-flow: column;
+          min-height: 100%;
+
+          .text,
+          .bottom-text {
+            @include font-rem(14px, 17px);
+            opacity: 0.5;
+            font-weight: 700;
+          }
+
+          .text {
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  &:before {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    z-index: -1;
+    border-top: 1px solid #d8d5cc;
+    background: #e3e1db;
+  }
+
+  @include bp(tablet) {
+    margin-top: 86px;
+    padding-bottom: 120px;
+    padding-right: 20px;
+    padding-left: 20px;
+  }
+}

@@ -1,0 +1,36 @@
+.awards-banner {
+  display: flex;
+  justify-content: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 100px 10px 0;
+
+  img {
+    width: 61px;
+    height: 273px;
+    margin: 0 6px;
+
+    &:nth-child(1) {
+      margin-top: 15px;
+    }
+
+    &:nth-child(2) {
+      margin-top: 45px;
+    }
+
+    &:nth-child(4) {
+      margin-top: 55px;
+    }
+
+    @include bp(tablet) {
+      width: 90px;
+      height: 403px;
+      margin: 0 10px;
+    }
+  }
+
+  @include bp(tablet) {
+    padding: 170px 20px 0;
+    margin-bottom: 70px;
+  }
+}

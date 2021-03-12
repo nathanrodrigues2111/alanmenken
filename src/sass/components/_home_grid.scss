@@ -1,0 +1,257 @@
+.home-grid-wrapper {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 127px;
+  padding-bottom: 250px;
+  max-width: 1345px;
+  height: 100vh;
+  .inner-wrapper {
+    position: relative;
+  }
+
+  .single-mode-wrapper {
+    transform: scale(0);
+    display: none;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    video {
+      opacity: 0;
+      position: absolute;
+    }
+
+    .canvas-container {
+      position: relative;
+      padding-bottom: 50%;
+
+      canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  .home-grid-slider {
+    .swiper-wrapper {
+      padding-left: 25%;
+
+      @include bp(tablet) {
+        padding-left: 35%;
+      }
+
+      @include bp(small-laptop-md) {
+        padding-left: 40%;
+      }
+
+      @include bp(desktop-md) {
+        justify-content: center;
+        padding-left: 0;
+      }
+    }
+
+    .swiper-slide {
+      position: relative;
+      height: calc(100vh - 300px);
+
+      .slide-image {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        video {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          opacity: 0;
+          z-index: 9;
+          position: absolute;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+        }
+
+        .mobile-image {
+          width: 100%;
+          height: 100%;
+          background-position: center;
+          background-size: cover;
+          opacity: 0;
+          transition: 0.5s ease-in-out;
+        }
+      }
+
+      &:nth-child(2),
+      &:nth-child(4),
+      &:nth-child(7),
+      &:nth-child(9) {
+        margin-top: 20px;
+      }
+
+      &:nth-child(3),
+      &:nth-child(6) {
+        margin-top: 45px;
+      }
+
+      @include bp(desktop-lg) {
+        transition: 0.5s ease-in-out;
+      }
+
+      &.swiper-slide-active {
+        .mobile-image {
+          opacity: 1;
+
+          @include bp(desktop-md) {
+            opacity: 0;
+          }
+        }
+
+        @include bp(desktop-lg) {
+          width: 20% !important;
+        }
+
+        @media (max-width: 1199px) {
+          width: 30% !important;
+        }
+
+        @media (max-width: 767px) {
+          width: 50% !important;
+        }
+      }
+
+      @include bp(tablet) {
+        height: calc(100vh - 350px);
+      }
+
+      @include bp(desktop-md) {
+        height: calc(100vh - 400px);
+      }
+    }
+  }
+
+  @include bp(desktop-lg) {
+    overflow: hidden;
+    padding-top: 100px;
+    padding-bottom: 150px;
+    max-width: 100%;
+  }
+}
+
+.home-grid-info {
+  padding: 10px 20px;
+  text-align: center;
+  position: fixed;
+  bottom: 70px;
+  transform: translateX(-50%);
+  left: 50%;
+  width: 100%;
+
+  .hide {
+    opacity: 0;
+  }
+
+  .title {
+    @include font-rem(30px, 40px);
+
+    @include bp(tablet) {
+      @include font-rem(60px, 70px);
+    }
+  }
+
+  p {
+    @include font-rem(12px, 14px);
+    letter-spacing: 1.2px;
+
+    @include bp(tablet) {
+      @include font-rem(15px, 20px);
+      letter-spacing: 1px;
+    }
+  }
+}
+
+.view-modes {
+  display: flex;
+  position: fixed;
+  bottom: 17px;
+  transform: translateX(-50%);
+  left: 50%;
+
+  .common {
+    cursor: pointer;
+    background: #ddd9ce;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    margin-right: 8px;
+
+    svg {
+      width: 100%;
+      height: auto;
+      max-width: 25px;
+    }
+  }
+}
+
+.grid-video-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  visibility: hidden;
+
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+  }
+
+  .grid-video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+}
+
+.back-overlay {
+  width: 100%;
+  height: 100%;
+  background-color: $secondary;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  visibility: hidden;
+}
